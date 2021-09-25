@@ -1,0 +1,58 @@
+HOW TO RUN PROGRAM:
+-------------------
+Go to IntelliJ
+Go to File > Open > Find/Open the project Folder
+Go to scala > Simulation.scala and uncomment/comment the logger info/cloudSimulations.start methods in runSimulation() to test
+each of the simulations
+Then go to sbt shell > Type sbt clean compile
+Then type sbt run and it should run the simulation(s) based on which one is uncommented in the Simulation.scala file
+
+
+
+Explanations/Observations:
+----------------------------
+
+For this Homework, I have made 3 different simulations using different VMAllocationPolicies, Resource amounts,
+Brokers, Datacenters, and amount of DataCenters
+
+CloudSimulatorFinal:
+--------------------
+This simulation only uses one DataCenter which keeps all of the physical resources such as hosts and
+PEs. I made this simulation after messing around with various different examples given on cloudSimPlus
+resources. I wanted to create a simulation using only one DataCenter to see how it would compare with
+costs/resource usage compared to a Network Datacenter which shares resources between 2 or more datacenters.
+In this simulation, I use one DatacenterSimple with 10 hosts inside of it, each containing 5 PEs. The broker
+will send the cloudlets to this DataCenter and they will all go to the available VMs on the hosts. In this simulation,
+I set the # of cloudlets to 50 and the most cloudlets it can handle with 10 hosts each with 5 PEs is 50. While testing 
+this simulation, I found that the number of cloudlets submitted to the hosts in the DataCenter is maximum of 
+PE's * Hosts / CloudletPEs. This is a good point of reference to consider when creating a datacenter because 
+PE's * Hosts / CloudletPEs should always be larger than the max amount of cloudlets coming in at any time in
+your DataCenter, otherwise some cloudlets may not process and this would not be a good look for your services.
+
+CloudSimulatorFinal2:
+---------------------
+This simulation uses 2 NetworkDataCenters along with NetworkHosts so that the various different resources are mapped/shared
+throughout the simulation. In this simulation, I used a DataCenterBrokerFirstFit which selects a VM to be hosted on a suitable
+Host until there are no more hosts left, then it will go to the next DataCenter it finds, allocating the VMs until it is finished.
+Thus it should be noted that the amount of VMs needed in a simulation with 2 NetworkDataCenters should be ((amountOfHosts * HostPEs / CloudletPEs) * DataCenters).
+The DataCenterBrokerFirstFit will then allocate the VMs to the different Hosts in the different DataCenters. In this simulation, I used VmAllocationPolicyFirstFit
+which is very efficient because it will allocate the maximum # of VMs into a host so that the resource usage is much more efficient. Thus giving us 
+VMs = ((amountOfHosts * HostPEs / CloudletPEs) * DataCenters)
+
+CloudSimulatorFinal3:
+----------------------
+This simulation  essentially follows the same structure as CloudSimulatorFinal2, the only difference is that it uses a different VMAllocationPolicy: VMAllocationPolicyBestFit
+The difference between these two policies is the way is allocates VMs. VMAllocationPolicyBestFit allocates VMs to hosts with the most # of PEs in use and still has a free PE for use, 
+whereas VMAllocationPolicyFirstFit tries to store the max # of VMs into the same Host to increase each Host's resource usage.
+
+Observations/Personal Thoughts:
+------------------
+In my observations, I noticed that having/using 2 DataCenters completes tasks quicker, but takes a lot more resource usage/cost. In my first Simulation, the cost of using 1 DataCenter
+for a fixed # of cloudlets used in the simulation was $261 and took approximately 6 seconds to finish 50 cloudlets of some fixed size. In my other 2 Simulations which use a NetworkDataCenter
+and NetworkHosts to share resources evenly, it took approximately 5 seconds to process those 50 cloudlets but costed $521. This shows that clearly using 2 NetworkedDataCenters is more efficient
+in terms of time but is a lot more costly. Realistically, I think that although using 1 DataCenter is more cost effective than using 2, I don't think it is sustainable in the long term.
+The reason I think that using 2 DataCenters is better, is because it is important to provide customers with a guarantee of good response times and using 2 or more DataCenters in different
+locations (Cluster) allows you to ensure those better response times, providing better service and possibly gaining more customers and revenue along the way. Lastly, if I were to create
+a Datacenter and provide cloud services on a large scale, I would probably use CloudSimulatorFinal2 because it uses a more efficient VmAllocationPolicy and I would probably have atleast
+3-4 DataCenters so that I am able to provide better response time to people all over the world using my CloudService. I would also try to use more Processing Entities per Host because I find
+that the resource usage price turns out to be lower when you can allocate more cloudlets per Host. This would save more money in the long term.

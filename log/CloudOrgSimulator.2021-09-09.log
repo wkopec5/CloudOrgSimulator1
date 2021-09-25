@@ -1,0 +1,32 @@
+23:12:12.931 [main] INFO  java.lang.Class - Constructing a cloud model...
+23:12:13.230 [main] INFO  java.lang.Class - Created one processing element: List(PeSimple -1: FREE)
+23:12:13.262 [main] INFO  java.lang.Class - Created one host: List(Host -1)
+23:12:13.279 [main] INFO  java.lang.Class - Created one virtual machine: List(Vm -1)
+23:12:13.284 [main] INFO  java.lang.Class - Created a list of cloudlets: List(Cloudlet -1, Cloudlet -1)
+23:12:13.285 [main] INFO  java.lang.Class - Starting cloud simulation...
+23:12:13.285 [main] INFO  CloudSim - 
+================== Starting CloudSim Plus 6.4.3 ==================
+
+23:12:13.287 [main] INFO  DatacenterBroker - DatacenterBrokerSimple1 is starting...
+23:12:13.290 [main] INFO  Datacenter - 0.00: DatacenterSimple2 is starting...
+23:12:13.290 [main] INFO  CloudSim - Entities started.
+23:12:13.299 [main] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple1: List of 1 datacenters(s) received.
+23:12:13.300 [main] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple1: Trying to create Vm 0 in DatacenterSimple2
+23:12:13.312 [main] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 0 has been allocated to Host 0/DC 2
+23:12:13.315 [main] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple1: Sending Cloudlet 0 to Vm 0 in Host 0/DC 2.
+23:12:13.316 [main] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple1: Sending Cloudlet 1 to Vm 0 in Host 0/DC 2.
+23:12:13.316 [main] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple1: All 2 waiting Cloudlets submitted to some VM.
+23:12:13.331 [main] INFO  DatacenterBroker - 40.11: DatacenterBrokerSimple1: Cloudlet 0 finished in Vm 0 and returned to broker.
+23:12:13.332 [main] INFO  DatacenterBroker - 40.11: DatacenterBrokerSimple1: Cloudlet 1 finished in Vm 0 and returned to broker.
+23:12:13.333 [main] INFO  CloudSim - 40.22: Processing last events before simulation shutdown.
+23:12:13.334 [main] INFO  DatacenterBroker - 40.22: DatacenterBrokerSimple1 is shutting down...
+23:12:13.334 [main] INFO  DatacenterBroker - 40.22: DatacenterBrokerSimple1: Requesting Vm 0 destruction.
+23:12:13.337 [main] INFO  Datacenter - 40.22: DatacenterSimple: Vm 0 destroyed on Host 0/DC 2. 
+23:12:13.341 [main] INFO  CloudSim - Simulation: No more future events
+
+23:12:13.342 [main] INFO  CloudInformationService - CloudInformationService0: Notify all CloudSim Plus entities to shutdown.
+
+23:12:13.343 [main] INFO  CloudSim - 
+================== Simulation finished at time 40.22 ==================
+
+23:12:13.375 [main] INFO  java.lang.Class - Finished cloud simulation...
