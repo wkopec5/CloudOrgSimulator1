@@ -56,7 +56,7 @@ object cloudSimulatorFinal:
     cloudsim.start();
 
     new CloudletsTableBuilder(broker0.getCloudletFinishedList()).build();
-    printTotalVmsCost(broker0, dc0, totalCost1)
+    printTotalVmsCost1(broker0, dc0, totalCost1)
     val totalCost = cost(totalCost1)
 
   /*
@@ -134,7 +134,7 @@ private def createCloudlets: util.List[Cloudlet] = {
 printTotalVmsCost: A function that gets the info/resource usage from the broker and calculates the estimated
 total cost based on the prices defined within the DataCenterCharacteristics
 */
-private def printTotalVmsCost(broker0 : DatacenterBrokerFirstFit, dc0 : DatacenterSimple, totalCost : Int) = {
+private def printTotalVmsCost1(broker0 : DatacenterBrokerFirstFit, dc0 : DatacenterSimple, totalCost : Int) = {
   var totalCost : Double = 0.0
   var totalNonIdleVms : Double = 0.0
   var processingTotalCost : Double = 0.0
