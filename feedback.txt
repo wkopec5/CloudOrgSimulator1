@@ -26,10 +26,10 @@ Grading Criteria:
  - no instructions in README.md on how to install and run your simulator:
     * instructions exist: -0%
  - the program crashes without completing the core functionality:
-    * program won't compile: -5.5%
+    * program won't compile (FIXED): -2%
  - the documentation exists but it is insufficient to understand your cloud simulation design and models and how you assembled and deployed all components of the cloud:
     * documentation exists: -0%
-Total grade: 0.5%
+Total grade: 4%
 Comilation error trace:
 info] compiling 8 Scala sources to G:\My Drive\S9 Fall 2021\TA CS 441\Homework 1\William Kopec\target\scala-3.0.2\classes ...
 [error] -- [E007] Type Mismatch Error: G:\My Drive\S9 Fall 2021\TA CS 441\Homework 1\William Kopec\src\main\scala\Simulations\cloudSimulatorFinal.scala:59:31 
